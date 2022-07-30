@@ -1,1 +1,3 @@
 # hw4web
+
+*Write a junk folder handler that sorts the files in a specified folder by extension using multiple streams. Speed up the processing of large directories with many nested folders and files by traversing all folders in parallel on separate threads. The most time consuming will be transferring the file and getting a list of files in the folder (iteration over the contents of the directory). To speed up the transfer of files, it can be performed in a separate thread or thread pool. This is all the more convenient because you do not process the result of this operation in the application and you can not collect any results.*
