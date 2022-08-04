@@ -1,5 +1,6 @@
 import sys
 from pathlib import Path
+from main import main
 
 JPEG_IMAGES = []
 JPG_IMAGES = []
@@ -50,11 +51,12 @@ REGISTER_EXTENSIONS = {
 FOLDERS = []
 EXTENSIONS = set()
 UNKNOWN = set()
+work_folder = Path('.')
 
 
 def get_extension(filename: str) -> str:
-    # превращаем расширение файла в название папки .jpg -> JPG
     return Path(filename).suffix[1:].upper()
+
 
 def connect(folder):
     for item in folder.iterdir():
@@ -63,7 +65,7 @@ def connect(folder):
                 FOLDERS.append(item)
                 connect(item)
             continue
-
+        print(item.name)
         ext = get_extension(item.name)
         fullname = folder / item.name
         if not ext:
@@ -77,3 +79,4 @@ def connect(folder):
                 UNKNOWN.add(ext)
                 OTHER.append(fullname)
 
+    return main(folder)
