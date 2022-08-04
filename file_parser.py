@@ -58,8 +58,7 @@ def get_extension(filename: str) -> str:
     return Path(filename).suffix[1:].upper()
 
 
-def connect(folder: Path):
-    fullname = ''
+def connect(folder):
     for item in folder.iterdir():
         if item.is_dir():
             if item.name not in ('archives', 'video', 'audio', 'documents', 'images', 'OTHERS'):
